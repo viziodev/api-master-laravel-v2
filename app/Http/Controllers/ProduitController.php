@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProduitRequest;
 use App\Http\Requests\UpdateProduitRequest;
+use App\Http\Resources\ProduitCatalogue;
+use App\Http\Resources\ProduitDetail;
 use App\Models\Produit;
 
 class ProduitController extends Controller
@@ -15,7 +17,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        return Produit::all();
+        return ProduitCatalogue::collection(Produit::all());
     }
 
     /**
@@ -37,7 +39,7 @@ class ProduitController extends Controller
      */
     public function show(Produit $produit)
     {
-        return $produit;
+        return new ProduitDetail($produit);
     }
 
     /**

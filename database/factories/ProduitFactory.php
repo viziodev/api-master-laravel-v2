@@ -15,10 +15,12 @@ class ProduitFactory extends Factory
     public function definition()
     {
         return [
-            "libelle"=>$this->faker->unique()->word(),
+            "libelle"=>$this->faker->sentence(2),
+            "reference"=>$this->faker->unique()->sentence(2),
             "description"=>$this->faker->text(250),
             "qteStock"=>$this->faker->numberBetween($min = 150, $max = 600),
             "prixOld"=>$this->faker->numberBetween($min = 150, $max = 600),
+            "note"=>$this->faker->numberBetween($min = 1, $max = 5),
             "prix"=>$this->faker->numberBetween($min = 150, $max = 600),
             "isPromo"=>$this->faker->boolean(),
             'categorie_id'=>$this->faker->randomElement(Categorie::pluck('id'))

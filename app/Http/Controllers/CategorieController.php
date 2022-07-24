@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategorieRequest;
 use App\Http\Requests\UpdateCategorieRequest;
+use App\Http\Resources\CategorieWithProduits;
 use App\Models\Categorie;
 
 class CategorieController extends Controller
@@ -15,7 +16,7 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        return Categorie::all();
+        return ["data"=>Categorie::all()];
     }
 
     /**
@@ -38,7 +39,7 @@ class CategorieController extends Controller
     public function show(Categorie $categorie)
     {
        // $categorie=Categorie::find($id);
-        return $categorie;
+        return new CategorieWithProduits($categorie);
     }
 
     /**
