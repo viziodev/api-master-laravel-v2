@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('categories',[CategorieController::class,"index"]);
+Route::get('flutter/categories',[CategorieController::class,"categories_flutter"]);
 Route::get('categories/{categorie}',[CategorieController::class,"show"]);
 
 Route::apiResource("produits",ProduitController::class);

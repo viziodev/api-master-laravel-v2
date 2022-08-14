@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategorieRequest;
 use App\Http\Requests\UpdateCategorieRequest;
+use App\Http\Resources\CategorieMobile;
 use App\Http\Resources\CategorieWithProduits;
 use App\Models\Categorie;
 
@@ -18,7 +19,17 @@ class CategorieController extends Controller
     {
         return ["data"=>Categorie::all()];
     }
+/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function categories_flutter()
+    {
+        return CategorieMobile::collection(Categorie::all());
+    }
 
+    
     /**
      * Store a newly created resource in storage.
      *

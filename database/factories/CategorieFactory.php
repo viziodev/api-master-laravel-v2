@@ -14,7 +14,7 @@ class CategorieFactory extends Factory
     public function definition()
     {
         return [
-            "libelle"=>$this->faker->unique()->sentence(3),
+            "libelle"=>$this->faker->unique()->word(),
         ];
  
     }
